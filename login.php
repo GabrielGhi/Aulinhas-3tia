@@ -45,6 +45,7 @@ if(isset($_POST['sub'])){
                     <td>
                         <input type="submit" name="sub" value="submit">
                     </td>
+                    <a href="reg.php"></a>
                 </tr>
             </table>
     </body>
