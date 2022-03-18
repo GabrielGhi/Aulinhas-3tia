@@ -21,9 +21,7 @@ if(isset($_POST['sub'])){
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
 
-    session_start();
-// Se o usuário não está logado, manda para página de login.
-if (!isset($_SESSION['user'])) header("Location: http://localhost/GitHub-Aulinhas/login.php");
+    
 
     ?> 
 <form method="POST" enctype="multipart/form-data">
