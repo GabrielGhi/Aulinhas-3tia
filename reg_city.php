@@ -1,23 +1,21 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 include 'connect.php';
-// include 'checkLogin.php';
+include 'checkLogin.php';
 
-
-// 
 if(isset($_POST['sub'])){
     
-    $namecity=$_POST['text'];
+    $nameCity=$_POST['nameCity'];
 
-   // $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
-   $i = "insert into city(city) values ('$namecity')";
+    // $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    $i = "insert into city(nameCity) values ('$nameCity')";
     mysqli_query($con, $i);
 }
 ?>
-
-<html>
+<!DOCTYPE HTML>
+<html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
+    <meta charset=”UTF-8”>
         <title></title>
     </head>
     <body>
@@ -26,23 +24,18 @@ if(isset($_POST['sub'])){
                 <tr>
                     <td>
                         Name
-                        <input type="text" name="text">
-                    </td>
-                </tr>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="submit" name="sub">
-                               
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <a href="login.php">Login</a>
-                               
+                        <input type="text" name="nameCity">
                     </td>
                 </tr>
                 
+                <tr>
+                    <td>
+                        <input type="submit" value="submit" name="sub">         
+                    </td>
+                    <td>
+                        <a href="login.php"> Login</a>
+                    </td>
+                </tr>
             </table>
     </body>
 </html>

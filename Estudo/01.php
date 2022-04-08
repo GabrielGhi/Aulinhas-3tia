@@ -1,17 +1,18 @@
 <?php
 // Start the session
-session_start();
+    session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <body>
 
 <?php
-// Set session variables
-$_SESSION["Nome"] = "Gabriel";
-$_SESSION["Sobrenome"] = "Ghiraldelli";
-$_SESSION["FavColor"] = "Preto, Vermelho, Branco e Verde";
-echo "Session variables are set.";
+    // Set session variables
+    $_SESSION["favcolor"] = "green";
+    $_SESSION["favanimal"] = "cat";
+    $_SESSION["nome"] = "Alciomar Hollanda";
+    
+    echo "Session variables are set.";
 ?>
 
 </body>

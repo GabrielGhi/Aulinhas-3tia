@@ -1,25 +1,25 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 include 'connect.php';
-
-// 
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
     $p=$_POST['pass'];
     $c=$_POST['city'];
     $g=$_POST['gen'];
+
     if($_FILES['f1']['name']){
-    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
-    $img="image/".$_FILES['f1']['name'];
+        move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+        $img="image/".$_FILES['f1']['name'];
     }
     $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
 }
 ?>
-
-<html>
+<!DOCTYPE HTML>
+<html lang="pt-br">
     <head>
-        <meta charset="UTF-8">
+    <meta charset=”UTF-8”>
         <title></title>
     </head>
     <body>
@@ -49,14 +49,14 @@ if(isset($_POST['sub'])){
                         <select name="city">
                             <option value="">-select-</option>
                             <?php
-                            $sqlCity = mysqli_query($con, "select * from city");
-
+                            $sqlCity= mysqli_query($con, "select * from city");
+                                                        
                             while($item = mysqli_fetch_assoc($sqlCity))
                             {
-                                $nomeItem = $item["city"];
-                                $idCity = $item["ID_city"];
-                                echo"
-                                <option value=$nomeItem>$nomeItem</option>
+                                $nomeItem = $item['nameCity'];
+                                $idCity = $item['idCity'];
+                                echo "                                
+                                    <option value=$nomeItem>$nomeItem</option>                                
                                 ";
                             }
                             ?>
@@ -77,17 +77,12 @@ if(isset($_POST['sub'])){
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" value="submit" name="sub">
-                               
+                        <input type="submit" value="submit" name="sub">         
                     </td>
-                </tr>
-                <tr>
                     <td>
-                    <a href="login.php">Login</a>
-                               
+                        <a href="login.php"> Login</a>
                     </td>
                 </tr>
-                
             </table>
     </body>
 </html>

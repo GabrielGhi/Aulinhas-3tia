@@ -2,10 +2,12 @@
 
 include'connect.php';
 
+// is set 
 if(isset($_POST['sub'])){
     $u=$_POST['user'];
     $p=$_POST['pass'];
-    $s= "select * from reg where username='$u' and password= '$p'";   
+    
+   $s= "select * from reg where username='$u' and password= '$p'";   
    $qu= mysqli_query($con, $s);
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
@@ -25,7 +27,7 @@ if(isset($_POST['sub'])){
         <title></title>
     </head>
     <body>
-        <h1> Login </h1>
+        <h1> Login -alciomar </h1>
         <form method="POST" enctype="multipart/form-data">
             <table>
                 
@@ -45,11 +47,10 @@ if(isset($_POST['sub'])){
                     <td>
                         <input type="submit" name="sub" value="submit">
                     </td>
-                </tr>
-                <tr> 
                     <td>
-                    <a href="reg.php">Cadastrar</a>
+                        <a href="reg.php">cadastrar</a>
                     </td>
+                    
                 </tr>
             </table>
     </body>

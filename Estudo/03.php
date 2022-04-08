@@ -1,15 +1,11 @@
 <?php
+
 session_start();
-?>
-<!DOCTYPE html>
-<html>
-<body>
 
-<?php
-// remove all session variables
-unset($_SESSION["FavColor"]);
+//unset($_SESSION['nome']); // deleta somente uma variavel
+
+session_unset();  // deletar todas as variaveis
+
+echo "Session nome delete.";
 
 ?>
-
-</body>
-</html>

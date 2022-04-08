@@ -20,9 +20,6 @@ if(isset($_POST['sub'])){
      $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
-
-    
-
     ?> 
 <form method="POST" enctype="multipart/form-data">
             <table>
