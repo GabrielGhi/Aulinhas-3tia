@@ -1,5 +1,7 @@
 <?php
-include'connect.php';
+include 'connect.php';
+include 'checkLogin.php';
+
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -20,9 +22,6 @@ if(isset($_POST['sub'])){
      $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
-
-    
-
     ?> 
 <form method="POST" enctype="multipart/form-data">
             <table>
@@ -49,8 +48,18 @@ if(isset($_POST['sub'])){
                         city
                         <select name="city">
                             <option value="">-select-</option>
-                            <option value="knp"<?php if($f['city']=='knp'){ echo "selected='selected'";}?>>kanpur</option>
-                            <option value="lko"<?php if($f['city']=='lko'){ echo "selected='selected'";}?>>lucknow</option>
+                            <?php
+                            $sqlCity = mysqli_query($con, "select * from city");
+
+                            while($item = mysqli_fetch_assoc($sqlCity))
+                            {
+                                $nomeItem = $item["city"];
+                                $idCity = $item["ID_city"];
+                                echo"
+                                <option value=$nomeItem>$nomeItem</option>
+                                ";
+                            }
+                            ?>
                     </td>
                 </tr>
                 <tr>

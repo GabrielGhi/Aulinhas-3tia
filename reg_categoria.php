@@ -2,9 +2,9 @@
 include 'connect.php';
 include 'checkLogin.php';
 if(isset($_POST['sub'])){
-    $nameCity=$_POST['text'];
+    $nameCategoria=$_POST['text'];
 
-    $i="insert into city(city)value('$nameCity')";
+    $i="insert into categoria(nomeCategoria)value('$nameCategoria')";
     mysqli_query($con, $i);
 }
 ?>
@@ -19,7 +19,7 @@ if(isset($_POST['sub'])){
             <table>
                 <tr>
                     <td>
-                        Nome da Cidade
+                        Nome da Categoria
                         <input type="text" name="text">
                     </td>
                 </tr>
